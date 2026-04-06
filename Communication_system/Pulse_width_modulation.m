@@ -1,20 +1,27 @@
-clc;
-clear;
-close all;
+% Pulse Width Modulation;
+a=4;
+fs=10000;
+t= 0:(1/fs):0.1;
+f = 50;
+msg_signal = a*sin(2*pi*f*t);
 
-% Parameters
-fs = 10000;              % Sampling frequency
-t = 0:1/fs:0.1;          % Time vector
+% Now time for PWM;
+fc = 500;
+carrier = a*sawtooth(2*pi*fc*t,0.5);  % Due to this it will become triangle.
 
-fm = 50;                 % Message frequency (Hz)
-fc = 500;                % Carrier frequency (Hz)
+pwm = msg_signal>carrier;
 
-Am = 1;                  % Message amplitude
+subplot(3,1,1);
+plot(t, msg_signal);
+title('Message Signal');
+grid on;
 
-% Message signal (sine wave)
-y = Am * sin(2*pi*fm*t);
+subplot(3,1,2);
+plot(t, carrier);
+title('Carrier Signal (Triangle)');
+grid on;
 
-carrier = sawtooth(2*pi*fc*t,0.7);
-pwm=y>carrier;
-figure;
-plot(t,pwm);
+subplot(3,1,3);
+plot(t, pwm);
+title('PWM Signal');
+grid on;
