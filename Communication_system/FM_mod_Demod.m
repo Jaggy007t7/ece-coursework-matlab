@@ -1,3 +1,27 @@
+% My code:-
+% FM modulation and demodulation:-
+
+%Message signal:-
+Am =1;
+fm = 10;
+fs = 10^6;
+t = 0:(1/fs):1;
+msg = Am*cos(2*pi*fm*t);
+fc = 80;
+
+%modulation;
+mod = fmmod(msg,fc,fs,50);
+
+demod = fmdemod(mod,fc,fs,50);
+
+subplot(3,1,1);
+plot(t,mod,'m');
+
+subplot(3,1,2);
+plot(t,demod);
+
+
+
 
 % Parameters
 fs = 1000;              % Sampling frequency (Hz)
