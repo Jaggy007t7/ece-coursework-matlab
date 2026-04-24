@@ -1,26 +1,22 @@
-f = @(x) (x^3)-x-2;
-a =1;
-b =2;
-tol = 1e-6;
-max_iter = 50;
-iter=0;
+% Root using bisection method;
+f = @(x) x^3-x-2;
+a=1;
+b=2;
+tol=1e-8;
 
-while iter<=max_iter
-    % mid point;
-    c = (a+b)/2;
+max_iter=50;
+for iter=0:max_iter
+    mid = (a+b)/2;
 
-    if abs(f(c)) < tol || (b - a) / 2 < tol
+    if(abs(a-b)<tol)
         break;
     end
-    
-    if f(a)*f(c)<0
-        b=c;
-    else 
-        a=c;
+
+    if(f(a)*f(mid)<0)
+        b=mid;
+    else
+        a=mid;
     end
-iter = iter+1;
 end
-root = c;
-fprintf('%.6f,%d',root,iter);
-
-
+root =mid;
+fprintf("%f %f",mid,iter);
