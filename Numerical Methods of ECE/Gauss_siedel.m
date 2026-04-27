@@ -19,6 +19,7 @@ for iter=1:50
     y = y_new;
     z = z_new;
 
+
 end
 fprintf("%d \n",iter);
 fprintf("x=%f, y=%f, z=%f",x_new,y_new,z_new);
