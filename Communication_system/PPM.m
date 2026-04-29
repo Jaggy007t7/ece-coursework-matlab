@@ -36,7 +36,7 @@ for k = 1:floor(length(t)/(T*fs))
     end
 end
 
-% Plotting
+% Here we will plot all the required curves 
 figure;
 
 subplot(3,1,1);
