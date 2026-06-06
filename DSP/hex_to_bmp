@@ -1,0 +1,18 @@
+clc;
+clear;
+
+fid = fopen('processed.hex','r');
+
+data = fscanf(fid,'%x');
+
+fclose(fid);
+
+img = uint8(data);
+
+img = reshape(img,[512 512]);
+
+img = img';
+
+imshow(img);
+
+imwrite(img,'processed.bmp');
