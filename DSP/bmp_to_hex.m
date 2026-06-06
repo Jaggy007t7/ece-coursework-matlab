@@ -1,5 +1,6 @@
 img = imread('lena_gray.bmp');
 
+% It will convert RGB to Grayscale image.
 if size(img,3)==3
     img = rgb2gray(img);
 end
